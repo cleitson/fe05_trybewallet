@@ -1,6 +1,8 @@
 import { ADD_EMAIL } from '../actions';
 // Esse reducer será responsável por tratar as informações da pessoa usuária
+
 const initialState = {};
+
 type ActionType = {
   type: string,
   payload: string,
