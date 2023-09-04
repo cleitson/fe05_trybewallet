@@ -17,11 +17,6 @@ export type WalletDataType = {
   idToEdit: number,
 };
 
-export type GlobalStateType = {
-  user: UserDataType,
-  wallet: WalletDataType,
-};
-
 export type Currencie = {
   code: string,
   codein: string,
@@ -44,6 +39,11 @@ export type ExpenseType = {
   method: string;
   tag: string;
   exchangeRates: Currencie[];
+};
+
+export type GlobalStateType = {
+  user: UserDataType,
+  wallet: WalletDataType,
 };
 
 export type DispatchType = ThunkDispatch<GlobalStateType, null, AnyAction>;
