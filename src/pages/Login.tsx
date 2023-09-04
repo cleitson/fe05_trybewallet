@@ -55,6 +55,7 @@ function Login() {
         name="email"
         id="email"
         value={ email }
+        placeholder="Email"
         onChange={ handleChange }
         required
       />
@@ -64,6 +65,7 @@ function Login() {
         name="password"
         id="password"
         value={ password }
+        placeholder="Senha"
         onChange={ handleChange }
         required
       />
