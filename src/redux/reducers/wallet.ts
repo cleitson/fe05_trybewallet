@@ -1,6 +1,7 @@
 // Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
+import { AnyAction } from 'redux';
 import { WalletDataType } from '../../types';
-import { GET_CURRENCY, ADD_EXPENSE } from '../actions';
+import { GET_CURRENCY, ADD_EXPENSE, DELETE_EXPENSE } from '../actions';
 // Esse reducer será responsável por tratar as informações da pessoa usuária
 const initialState: WalletDataType = {
   currencies: [],
@@ -12,7 +13,7 @@ type ActionType = {
   type: string,
   payload: WalletDataType,
 };
-const walletReducer = (state = initialState, action:ActionType) => {
+const walletReducer = (state = initialState, action:AnyAction) => {
   switch (action.type) {
     case GET_CURRENCY:
       return {
@@ -24,11 +25,11 @@ const walletReducer = (state = initialState, action:ActionType) => {
         ...state,
         expenses: [...state.expenses, action.payload],
       };
-    // case ADD_EXCHANGE:
-    //   return {
-    //     ...state,
-    //     expenses: [...state.expenses, action.payload.expenses],
-    //   };
+    case DELETE_EXPENSE:
+      return {
+        ...state,
+        expenses: [...state.expenses.filter((user) => user.id !== action.payload)],
+      };
     default:
       return state;
   }

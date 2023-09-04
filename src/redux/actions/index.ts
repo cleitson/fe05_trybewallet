@@ -7,6 +7,7 @@ export const ADD_EMAIL = 'ADD_EMAIL';
 export const GET_CURRENCY = 'GET_CURRENCY';
 export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const ADD_EXCHANGE = 'ADD_EXCHANGE';
+export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 
 type AddEmailActionType = {
   type: string,
@@ -64,3 +65,8 @@ export const getCurrencyAddActionFunction = (form:ExpenseType) => {
     dispach(addExpenseAction(update));
   };
 };
+
+export const deleteExpenseAction = (id: number) => ({
+  type: DELETE_EXPENSE,
+  payload: id,
+});
